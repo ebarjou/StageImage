@@ -15,9 +15,6 @@ import org.opencv.features2d.Features2d;
 import org.opencv.features2d.KeyPoint;
 import org.opencv.highgui.Highgui;
 
-import image.Image;
-import pointCloud.KeyPoint2DCloud;
-
 
 /*
  * Source : http://dummyscodes.blogspot.fr/2015/12/using-siftsurf-for-object-recognition.html
@@ -25,7 +22,7 @@ import pointCloud.KeyPoint2DCloud;
 public class SIFTDetector
 {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public static MatchList sift(Mat im1, Mat im2)
+	public static void sift(Mat im1, Mat im2)
 	{
 		System.out.println("Started....");
 		Mat im1Image = im1;
@@ -126,6 +123,6 @@ public class SIFTDetector
 			System.out.println("Not Found");
 		}
 		System.out.println("Ended....");
-		return null;
+		//return null;
 	}
 }

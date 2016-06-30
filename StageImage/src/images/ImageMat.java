@@ -2,9 +2,7 @@ package images;
 import java.io.File;
 
 import org.opencv.core.Mat;
-import org.opencv.core.Size;
 import org.opencv.highgui.Highgui;
-import org.opencv.imgproc.Imgproc;
 
 import images.exception.ImageException;
 
@@ -43,16 +41,13 @@ public abstract class ImageMat {
 		if (fileOutput != null) {
 			Highgui.imwrite(fileOutput, imMatrice);
 		} else {
-			throw new ImageException("No output path for this image");
+			throw new ImageException(ImageException.WRITE, fileOutput);
 		}
 	}
 	
 	public void write(String output) throws ImageException{
-		if (output != null) {
-			Highgui.imwrite(output, imMatrice);
-		} else {
-			throw new ImageException("No output path for this image");
-		}
+		this.setOutput(output);
+		this.write();
 	}
 
 	public int getHeight(){
@@ -79,12 +74,8 @@ public abstract class ImageMat {
 		if (imMatrice.type() == this.type){
 			this.imMatrice = imMatrice.clone();
 		} else {
-			throw new ImageException("Copy with different type of matrice");
+			throw new ImageException(ImageException.TYPE, imMatrice.type());
 		}
-	}
-
-	public void resizeAndCopy(ImageMat src, int scaleFactor){
-		Imgproc.resize(src.getMat(), this.getMat(), new Size ( src.getWidth()/scaleFactor,src.getHeight()/scaleFactor));
 	}
 
 }

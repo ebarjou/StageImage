@@ -22,7 +22,7 @@ public class ImageMat_RGB extends ImageMat{
 		if (x>=0 && y >=0 && x<this.getWidth() && y < this.getHeight()){
 			return imMatrice.get(y, x);
 		} else {
-			throw new ImageException("setPixel outside of the matrice");
+			throw new ImageException(ImageException.ACCESSOUTSIDEIMAGE, this);
 		}
 	}
 	
@@ -30,8 +30,6 @@ public class ImageMat_RGB extends ImageMat{
 		if (x>=0 && y >=0 && x<this.getWidth() && y < this.getHeight()){
 			double[] val = {b,g,r};
 			imMatrice.put(y, x, val);
-		} else {
-			throw new ImageException("setPixel outside of the matrice");
 		}
 	}
 	
@@ -74,4 +72,5 @@ public class ImageMat_RGB extends ImageMat{
 			}
 		}
 	}
+	
 }

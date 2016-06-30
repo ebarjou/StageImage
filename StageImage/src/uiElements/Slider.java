@@ -1,5 +1,7 @@
 package uiElements;
 
-public class Slider {
+import javax.swing.JSlider;
+
+public class Slider extends JSlider{
 
 }
