@@ -5,10 +5,12 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 
 import javax.swing.BorderFactory;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import lang.Text;
 import main.ui.selectImages.SelectImagesPanel;
+import main.ui.selectImages.event.EventRemoveImage;
 import uiElements.Button;
 import uiElements.ImageScaled;
 import uiElements.Panel;
@@ -16,11 +18,10 @@ import uiElements.Spinner;
 import uiElements.TextLine;
 
 public class LoadedImageFrame extends JPanel{
-	ImageScaled 				imageThumbnail;
-	ControlFrame 		controlFrame;
-	SelectImagesPanel 	selectImagePanel;
-	String 				file;
-	int 				w, h;
+	private ImageScaled 		imageThumbnail;
+	private ControlFrame 		controlFrame;
+	private SelectImagesPanel 	selectImagePanel;
+	private String 				file;
 	
 	public LoadedImageFrame(SelectImagesPanel parent, String file, int w, int h){
 		super();
@@ -28,14 +29,17 @@ public class LoadedImageFrame extends JPanel{
 		
 		this.selectImagePanel = parent;
 		this.file = file;
-		this.w = w;
-		this.h = h;
 		
 		imageThumbnail = new ImageScaled(file, w, h/2);
+		imageThumbnail.setHorizontalAlignment(JLabel.CENTER);
 		controlFrame = new ControlFrame();
 		
 		this.add(imageThumbnail);
 		this.add(controlFrame);
+	}
+	
+	public String getFile(){
+		return file;
 	}
 	
 	private void setupLayout(int w, int h){
@@ -49,10 +53,10 @@ public class LoadedImageFrame extends JPanel{
 	
 	
 	private class ControlFrame extends JPanel{
-		TextLine 	path;
-		Spinner 	angleSpinner;
-		Button 		deleteButton;
-		Panel		anglePanel;
+		private TextLine 	path;
+		private Spinner 	angleSpinner;
+		private Button 		deleteButton;
+		private Panel		anglePanel;
 		
 		public ControlFrame(){
 			super(new GridLayout(3,1));
@@ -60,7 +64,7 @@ public class LoadedImageFrame extends JPanel{
 			angleSpinner = new Spinner(0.0, -360.0, 360.0, 0.1);
 			anglePanel = new Panel(new TextLine("Angle ° "), angleSpinner);
 			path = new TextLine(LoadedImageFrame.this.file, true);
-			deleteButton = new Button(""+Text.BT_RMV_IMAGE);
+			deleteButton = new Button(""+Text.BT_RMV_IMAGE, new EventRemoveImage(selectImagePanel, LoadedImageFrame.this));
 			
 			this.add(anglePanel);
 			this.add(path);

@@ -12,11 +12,13 @@ public class Main {
 	public static void main(String[] args) {
 		Window 				mainWindow;
 		MainTabbedPane		mainTabbedPane;
+		
 		SelectImagesPanel	selectImagePanel;
 		CalibrationPanel	calibrationPanel;
 		ResultPanel			resultPanel;
 		
 		mainWindow = new Window(""+Text.WIN_TITLE, 1600, 900);
+		
 		selectImagePanel = new SelectImagesPanel();
 		calibrationPanel = new CalibrationPanel();
 		resultPanel = new ResultPanel();
@@ -25,7 +27,6 @@ public class Main {
 		mainWindow.add(mainTabbedPane);
 		
 		mainWindow.setVisible(true);
-		//mainWindow.add(new TabbedPane(new String[]{"1", "2"}, new JPanel(), new JPanel()));
 	}
 
 }

@@ -11,10 +11,10 @@ import uiElements.Panel;
 import uiElements.combinedElement.LoadedImageFrame;
 
 public class SelectImagesPanel extends Panel{
-	List<LoadedImageFrame>		listLoadedImageFrame;
-	FileChooser 				fileChooserImage;
-	Button						buttonAddImage;
-	int							index;
+	private List<LoadedImageFrame>		listLoadedImageFrame;
+	private FileChooser 				fileChooserImage;
+	private Button						buttonAddImage;
+	private int							index;
 	
 	public SelectImagesPanel(){
 		super();
@@ -30,11 +30,19 @@ public class SelectImagesPanel extends Panel{
 	}
 	
 	public void addImageFrame(String file){
-		listLoadedImageFrame.add(new LoadedImageFrame(this, file, 256, 256));
+		listLoadedImageFrame.add(new LoadedImageFrame(this, file, 196, 256));
 		this.remove(buttonAddImage);
 		this.add(listLoadedImageFrame.get(index++));
 		this.add(buttonAddImage);
 		this.repaint();
 		this.revalidate();
+	}
+	
+	public void removeImageFrame(LoadedImageFrame imageFrameToRemove){
+		this.remove(imageFrameToRemove);
+		listLoadedImageFrame.remove(imageFrameToRemove);
+		this.repaint();
+		this.revalidate();
+		--index;
 	}
 }

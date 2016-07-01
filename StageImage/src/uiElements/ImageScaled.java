@@ -35,7 +35,7 @@ public class ImageScaled extends JLabel {
 			img = ImageIO.read(new File(file));
 			ratio = 1;
 			if (img.getWidth() > w) ratio = img.getWidth()/w;
-			if (img.getHeight() > h && ratio > img.getHeight()/h) ratio = img.getHeight()/h;
+			if (img.getHeight() > h && ratio < img.getHeight()/h) ratio = img.getHeight()/h;
 			
 			dimg = img.getScaledInstance((int)Math.round(img.getWidth()/ratio), (int)Math.round(img.getHeight()/ratio), Image.SCALE_SMOOTH);
 			return new ImageIcon(dimg);

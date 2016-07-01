@@ -17,6 +17,7 @@ public enum Text {
 	ERR_WRITE("Can't write ", "Impossible d'écrire "),
 	/*UI Errors*/
 	ERR_TABARGUMENT("Wrong number of argument for TabbedPane ", "Nombre d'argument incorrect pour le tabbedPane "),
+	ERR_NOTENOUGHFILES("Not enough images loaded", "Nombre d'images insuffisant"),
 	
 	TEST("a", "b");
 

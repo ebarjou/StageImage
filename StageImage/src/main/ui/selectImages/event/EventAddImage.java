@@ -10,9 +10,9 @@ import main.ui.selectImages.SelectImagesPanel;
 
 
 public class EventAddImage implements ActionListener {
-	SelectImagesPanel	selectImagePanel;
-	JFileChooser		fileChooser;
-	File				file;
+	private SelectImagesPanel	selectImagePanel;
+	private JFileChooser		fileChooser;
+	private File				file;
 	
 	public EventAddImage(SelectImagesPanel selectImagePanel, JFileChooser fileChooser){
 		this.fileChooser = fileChooser;
