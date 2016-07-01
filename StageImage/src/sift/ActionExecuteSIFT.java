@@ -6,16 +6,10 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import exception.ImageException;
-import exception.SIFTException;
-import image.ImageRGB;
+import images.exception.ImageException;
 import main.ui.selectImages.SelectImagesPanel;
-import pointCloud.KeyPoint2DCloud;
 import sift.data.MatchList;
 import uiElements.exception.UIException;
-import window.panelMain.panelCard.tabImages.CardPanelImage;
-import window.panelMain.panelCard.tabResult.LabelPreview;
-import window.panelMain.panelCard.tabResult.PopupProgress;
 
 public class ActionExecuteSIFT implements ActionListener {
 	SelectImagesPanel selectImagesPanel;
@@ -27,8 +21,6 @@ public class ActionExecuteSIFT implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent event) {
-		//System.out.println(cardPannel_Image.getFiles());
-		//System.out.println(cardPannel_Image.getAngles());
 		List<String> files = selectImagesPanel.getFiles();
 		MatchList.clear();
 		if (files.size() < 2)
