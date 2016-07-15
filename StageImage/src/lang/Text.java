@@ -2,19 +2,19 @@ package lang;
 
 public enum Text {
 	/*UI text*/
-	WIN_TITLE("Photogrammetry", "Photogrammétrie"),
+	WIN_TITLE("Photogrammetry", "PhotogrammÃ©trie"),
 	BT_SWITCH_1("Images", "Images"),
 	BT_SWITCH_2("Calibrate", "Calibration"),
-	BT_SWITCH_3("Result", "Résultat"),
+	BT_SWITCH_3("Result", "RÃ©sultat"),
 	BT_SELECT_IMAGE("Select image", "Choisir une image"),
 	BT_ADD_IMAGE("Add image", "Ajouter une image"),
 	BT_RMV_IMAGE("Remove", "Supprimer"),
 	BT_COMPUTE("Compute", "Calculer"),
 	/*Image Errors*/
-	ERR_FILENOTFOUND("File not found : ", "Fichier non trouvé : "),
-	ERR_ACCESSOUTISEIMAGE("Coordinate given are outside of the image ", "les coordonée données sont à l'extérieur de l'image "),
+	ERR_FILENOTFOUND("File not found : ", "Fichier non trouvÃ© : "),
+	ERR_ACCESSOUTISEIMAGE("Coordinate given are outside of the image ", "les coordonÃ©e donnï¿½es sont Ã  l'extÃ©rieur de l'image "),
 	ERR_TYPE("Types don't correspond ", "Les types ne correspondes pas "),
-	ERR_WRITE("Can't write ", "Impossible d'écrire "),
+	ERR_WRITE("Can't write ", "Impossible d'Ã©crire "),
 	/*UI Errors*/
 	ERR_TABARGUMENT("Wrong number of argument for TabbedPane ", "Nombre d'argument incorrect pour le tabbedPane "),
 	ERR_NOTENOUGHFILES("Not enough images loaded", "Nombre d'images insuffisant"),

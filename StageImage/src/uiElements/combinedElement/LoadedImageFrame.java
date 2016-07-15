@@ -42,6 +42,10 @@ public class LoadedImageFrame extends JPanel{
 		return file;
 	}
 	
+	public double getAngle(){
+		return controlFrame.getAngle();
+	}
+	
 	private void setupLayout(int w, int h){
 		this.setLayout(new GridLayout(2,1));
 		this.setBackground(Color.WHITE);
@@ -52,7 +56,7 @@ public class LoadedImageFrame extends JPanel{
 	}
 	
 	
-	private class ControlFrame extends JPanel{
+	private class ControlFrame extends Panel{
 		private TextLine 	path;
 		private Spinner 	angleSpinner;
 		private Button 		deleteButton;
@@ -69,6 +73,10 @@ public class LoadedImageFrame extends JPanel{
 			this.add(anglePanel);
 			this.add(path);
 			this.add(deleteButton);
+		}
+		
+		public double getAngle(){
+			return (double) angleSpinner.getValue();
 		}
 	}
 }

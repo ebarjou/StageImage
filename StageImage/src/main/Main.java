@@ -1,5 +1,7 @@
 package main;
 
+import org.opencv.core.Core;
+
 import lang.Text;
 import main.ui.MainTabbedPane;
 import main.ui.calibration.CalibrationPanel;
@@ -17,11 +19,13 @@ public class Main {
 		CalibrationPanel	calibrationPanel;
 		ResultPanel			resultPanel;
 		
+		System.loadLibrary( Core.NATIVE_LIBRARY_NAME );
+		
 		mainWindow = new Window(""+Text.WIN_TITLE, 1600, 900);
 		
 		selectImagePanel = new SelectImagesPanel();
 		calibrationPanel = new CalibrationPanel();
-		resultPanel = new ResultPanel();
+		resultPanel = new ResultPanel(calibrationPanel);
 		mainTabbedPane = new MainTabbedPane(selectImagePanel, calibrationPanel, resultPanel);
 		
 		mainWindow.add(mainTabbedPane);
