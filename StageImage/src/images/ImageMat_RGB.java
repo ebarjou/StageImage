@@ -4,7 +4,9 @@ import org.opencv.core.CvType;
 
 import images.exception.ImageException;
 
-
+/*
+ * Classe pour l'instant inutilisé , à supprimer
+ */
 public class ImageMat_RGB extends ImageMat{
 	public ImageMat_RGB(){
 		super(COLOR,CvType.CV_8UC3);

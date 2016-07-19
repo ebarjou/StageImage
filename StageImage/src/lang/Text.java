@@ -1,5 +1,8 @@
 package lang;
 
+/*
+ * Contient tout les textes affiché dans l'interface utilisateur
+ */
 public enum Text {
 	/*UI text*/
 	WIN_TITLE("Photogrammetry", "Photogrammétrie"),

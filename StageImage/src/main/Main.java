@@ -10,7 +10,9 @@ import main.ui.selectImages.SelectImagesPanel;
 import uiElements.Window;
 
 public class Main {
-	
+	/*
+	 * Première méthode appelée, initialise la fenêtre du programme et y ajoute le panneau d'onglets
+	 */
 	public static void main(String[] args) {
 		Window 				mainWindow;
 		MainTabbedPane		mainTabbedPane;

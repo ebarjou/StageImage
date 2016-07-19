@@ -6,13 +6,16 @@ import org.opencv.highgui.Highgui;
 
 import images.exception.ImageException;
 
+/*
+ * Image stocké sous la frome d'une Matrice Mat de OpenCV
+ */
 public abstract class ImageMat {
-	static final int COLOR = 1;
-	static final int GREYSCALE = 0;
-	protected String fileOutput;
-	protected Mat imMatrice;
-	protected int type;
-	protected int channel;
+	static final int	COLOR = 1;
+	static final int	GREYSCALE = 0;
+	protected String	fileOutput;
+	protected Mat		imMatrice;
+	protected int		type;
+	protected int		channel;
 	
 	public ImageMat(String file, int channel, int type) throws ImageException{
 		this.channel = channel;

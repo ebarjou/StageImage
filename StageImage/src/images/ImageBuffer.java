@@ -8,6 +8,9 @@ import javax.imageio.ImageIO;
 
 import images.exception.ImageException;
 
+/*
+ * Image stocké sous la frome d'un BufferedImage de Java2D
+ */
 public class ImageBuffer {
 	BufferedImage buffer;
 	

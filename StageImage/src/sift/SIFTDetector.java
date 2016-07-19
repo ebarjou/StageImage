@@ -20,7 +20,8 @@ import sift.data.MatchList;
 
 
 /*
- * Source : http://dummyscodes.blogspot.fr/2015/12/using-siftsurf-for-object-recognition.html
+ * Calcul la MatchList des images im1 et im2 en Mat par l'algorithme SIFT
+ * Modifié à partir de : http://dummyscodes.blogspot.fr/2015/12/using-siftsurf-for-object-recognition.html
  */
 public class SIFTDetector {
 	public static void sift(Mat im1, Mat im2, MatchList output) {
@@ -40,34 +41,32 @@ public class SIFTDetector {
 		KeyPoint 		kpt;
 		Scalar 			newKeypointColor;
 		float 			nndrRatio = 0.7f;
-		
-		System.out.println("Started....");
 
 		im1KeyPoints = new MatOfKeyPoint();
 		featureDetector = FeatureDetector.create(FeatureDetector.SIFT);
-		System.out.println("Detecting key points...");
+		
 		featureDetector.detect(im1, im1KeyPoints);
 		keypoints = im1KeyPoints.toArray();
 		System.out.println(keypoints);
 
 		im1Descriptors = new MatOfKeyPoint();
 		DescriptorExtractor descriptorExtractor = DescriptorExtractor.create(DescriptorExtractor.SIFT);
-		System.out.println("Computing descriptors...");
+		
 		descriptorExtractor.compute(im1, im1KeyPoints, im1Descriptors);
 
 		// Create the matrix for output image.
 		outputImage = new Mat(im1.rows(), im1.cols(), Highgui.CV_LOAD_IMAGE_COLOR);
 		newKeypointColor = new Scalar(255, 0, 0);
 
-		System.out.println("Drawing key points on im1 image...");
+		
 		Features2d.drawKeypoints(im1, im1KeyPoints, outputImage, newKeypointColor, 0);
 
 		// Match im1 image with the im2 image
 		im2KeyPoints = new MatOfKeyPoint();
 		im2Descriptors = new MatOfKeyPoint();
-		System.out.println("Detecting key points in background image...");
+		
 		featureDetector.detect(im2, im2KeyPoints);
-		System.out.println("Computing descriptors in background image...");
+		
 		descriptorExtractor.compute(im2, im2KeyPoints, im2Descriptors);
 
 		matchoutput = new Mat(im2.rows() * 2, im2.cols() * 2, Highgui.CV_LOAD_IMAGE_COLOR);
@@ -75,10 +74,9 @@ public class SIFTDetector {
 
 		matches = new LinkedList<MatOfDMatch>();
 		descriptorMatcher = DescriptorMatcher.create(DescriptorMatcher.FLANNBASED);
-		System.out.println("Matching im1 and im2 images...");
+		
 		descriptorMatcher.knnMatch(im1Descriptors, im2Descriptors, matches, 2);
 
-		System.out.println("Calculating good match list...");
 		goodMatchesList = new LinkedList<DMatch>();
 
 		for (int i = 0; i < matches.size(); i++) {
@@ -91,7 +89,6 @@ public class SIFTDetector {
 		}
 
 		if (goodMatchesList.size() >= 7){
-			System.out.println("Found!");
 
 			im1Keypointlist = im1KeyPoints.toList();
 			im2Keypointlist = im2KeyPoints.toList();
@@ -120,13 +117,11 @@ public class SIFTDetector {
 			
 			Features2d.drawMatches(im1, im1KeyPoints, im2, im2KeyPoints, goodMatches, matchoutput, matchestColor, newKeypointColor, new MatOfByte(), 2);
 
-			//Highgui.imwrite("D:\\Images\\outputImage.jpg", outputImage);
-			Highgui.imwrite("D:\\Images\\matchoutput.jpg", matchoutput);
 		}
 		else
 		{
 			System.out.println("Not Found");
 		}
-		System.out.println("Ended....");
+		System.out.println("Ended");
 	}
 }

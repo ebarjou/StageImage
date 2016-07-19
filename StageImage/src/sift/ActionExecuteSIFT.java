@@ -14,6 +14,9 @@ import sift.data.ImageAttributes;
 import sift.data.MatchList;
 import uiElements.exception.UIException;
 
+/*
+ * Action déclenchée pour calculer le SIFT
+ */
 public class ActionExecuteSIFT implements ActionListener {
 	MatchList 				matchList;
 	List<MatchList> 		result;
@@ -29,7 +32,9 @@ public class ActionExecuteSIFT implements ActionListener {
 		files = new ArrayList<ImageAttributes>();/*TODO inutile ?*/
 		this.matchList = new MatchList();
 	}
-
+	/*
+	 * méthode appelé par le bouton "calculer"
+	 */
 	public void actionPerformed(ActionEvent event) {
 		files.clear();
 		files = SelectImagesPanel.getImages();
@@ -39,28 +44,21 @@ public class ActionExecuteSIFT implements ActionListener {
 			for(int i = 1; i < files.size(); ++i){
 				image1 = Highgui.imread(files.get(i-1).getPath());
 				image2 = Highgui.imread(files.get(i).getPath());
-				//resultPanel.getPointCloudFrame().setAxeX(image1.cols()/2);
+				//réglage du décalage du nuage de point pour l'afficher centré dans la fenêtre
 				resultPanel.getPointCloudFrame().addX((resultPanel.getPointCloudFrame().getWidth()/2)-(image1.cols()/2));
+				//Execution du sift pour image1 et image2 dont le résultat sera stocké dans matchList
 				matchList.clear();
 				SIFTDetector.sift(image1, image2, matchList);
 				matchList.setAngle1(angles.get(i-1));
 				matchList.setAngle2(angles.get(i));
 				matchList.axe = image1.cols()/2;
+				//Ajout des points trouvé dans la liste result
 				result.add(matchList.clone());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		/*try {
-			label_Preview.setAxe(new ImageRGB(files.get(0).toString()).getWidth()/2, new ImageRGB(files.get(0).toString()).getHeight()/2);
-		} catch (ImageException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		label_Preview.setList(pointList);
-		
-		popup.close();*/
-		
+		//Appel de la méthode de resultPanel pour calculer la position des points dans l'espace
 		resultPanel.ComputePoints();
 	}
 

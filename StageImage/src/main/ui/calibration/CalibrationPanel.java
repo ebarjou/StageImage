@@ -10,7 +10,9 @@ import uiElements.Slider;
 import uiElements.Spinner;
 import uiElements.TextLine;
 import uiElements.combinedElement.CalibrationFrame;
-
+/*
+ * Panneau pour caliberer la prise de vue
+ */
 public class CalibrationPanel extends Panel{
 	private CalibrationFrame	calibrationFrame;
 	private ControlFrame		controlFrame;
@@ -27,7 +29,6 @@ public class CalibrationPanel extends Panel{
 		this.add(controlFrame, BorderLayout.NORTH);
 		this.add(calibrationFrame, BorderLayout.CENTER);
 		
-		
 	}
 	
 	public int getSizeInCm(){
@@ -35,14 +36,15 @@ public class CalibrationPanel extends Panel{
 	}
 	
 	public void setSizeInCm(double size){
-		System.out.println(size);
 		this.sizeInCm = (int)size;
 	}
 	
 	public double getSizeInPx(){
 		return ((double)(Math.abs(LeftSlider.getValue()-RightSlider.getValue())/1000.0))*calibrationFrame.getImageWidth();
 	}
-	
+	/*
+	 * Panneau de controle, comprend un selecteur pour renseigner une distance et 2 slider pour selectionner un zone
+	 */
 	private class ControlFrame extends Panel{
 		private SpinControlFrame	spinControlFrame;
 		

@@ -19,7 +19,9 @@ import uiElements.Panel;
 import uiElements.Slider;
 import uiElements.TextLine;
 import uiElements.combinedElement.PointCloudFrame;
-
+/*
+ * Panneau pour afficher le résultat, comprend une barre de controle et un pointCloudFrame qui affiche un nuage de point
+ */
 public class ResultPanel extends Panel{
 	private PointCloudFrame		pointCloudFrame;
 	private ControlFrame		controlFrame;
@@ -46,12 +48,18 @@ public class ResultPanel extends Panel{
 		return this.pointCloudFrame;
 	}
 	
+	/*
+	 * Appelée après le SIFT, cette méthode convertie la liste de MatchList en liste de Point3D et les envoie au pointCloudFrame pour qu'il les affiches
+	 */
 	public void ComputePoints(){
 		points = matchLists.get(0).to3DPoints(this.getWidth()/2, calibrationPanel); /*TODO Verifier qu'il existe ? */
 		for (int i = 1; i < matchLists.size(); ++i) points.addAll(matchLists.get(i).to3DPoints(this.getWidth()/2, calibrationPanel));
 		pointCloudFrame.setPoints3D(points);
 	}
 	
+	/*
+	 * Panneau de controle
+	 */
 	private class ControlFrame extends Panel{
 		private Button				startComputingButton;
 		private Button				saveResult;
@@ -74,7 +82,9 @@ public class ResultPanel extends Panel{
 			this.add(moveControlFrame);
 			this.add(saveResult);
 		}
-		
+		/*
+		 * Panneau pour modifier l'échelle
+		 */
 		private class ScaleControlFrame extends Panel{
 			private Button	scaleP;
 			private Button	scaleL;
@@ -89,6 +99,9 @@ public class ResultPanel extends Panel{
 			}
 			
 		}
+		/*
+		 * Panneau pour déplacer le nuage de point
+		 */
 		private class MoveControlFrame extends Panel{
 			private Button xP;
 			private Button xL;
@@ -113,6 +126,9 @@ public class ResultPanel extends Panel{
 			}
 			
 		}
+		/*
+		 * Panneau pour faire pivoter le nuage de points
+		 */
 		private class SpinControlFrame extends Panel{
 			private Slider	angleSlider;
 			
