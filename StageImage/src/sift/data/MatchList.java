@@ -8,6 +8,9 @@ import org.opencv.features2d.KeyPoint;
 import main.ui.calibration.CalibrationPanel;
 import uiElements.combinedElement.PointCloudFrame;
 
+/*
+ * Double liste de KeyPoints qui sera le résultat d'un SIFT, une liste par image, ainsi que les angles de prises
+ */
 public class MatchList {
 	private List<KeyPoint> img1;
 	private List<KeyPoint> img2;

@@ -1,5 +1,8 @@
 package sift.data;
 
+/*
+ * Contient les données nécessaires au SIFT pour un image
+ */
 public class ImageAttributes {
 	private String path;
 	private double angle;
