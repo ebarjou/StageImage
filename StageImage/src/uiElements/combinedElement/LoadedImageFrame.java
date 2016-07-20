@@ -9,8 +9,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import lang.Text;
-import main.ui.selectImages.SelectImagesPanel;
-import main.ui.selectImages.event.EventRemoveImage;
+import ui.selectImages.SelectImagesPanel;
+import ui.selectImages.event.EventRemoveImage;
 import uiElements.Button;
 import uiElements.ImageScaled;
 import uiElements.Panel;
@@ -66,7 +66,7 @@ public class LoadedImageFrame extends JPanel{
 			super(new GridLayout(3,1));
 			
 			angleSpinner = new Spinner(0.0, -360.0, 360.0, 0.1);
-			anglePanel = new Panel(new TextLine("Angle ° "), angleSpinner);
+			anglePanel = new Panel(new TextLine("Angle ï¿½ "), angleSpinner);
 			path = new TextLine(LoadedImageFrame.this.file, true);
 			deleteButton = new Button(""+Text.BT_RMV_IMAGE, new EventRemoveImage(selectImagePanel, LoadedImageFrame.this));
 			

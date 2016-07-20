@@ -9,7 +9,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import images.exception.ImageException;
+import utils.exception.ImageException;
 
 public class ImageScaled extends JLabel {
 	

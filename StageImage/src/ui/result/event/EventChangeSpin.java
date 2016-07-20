@@ -1,9 +1,9 @@
-package main.ui.result.event;
+package ui.result.event;
 
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import main.ui.result.ResultPanel;
+import ui.result.ResultPanel;
 import uiElements.Slider;
 
 public class EventChangeSpin implements ChangeListener{

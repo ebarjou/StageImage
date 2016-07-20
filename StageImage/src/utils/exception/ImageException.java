@@ -1,4 +1,4 @@
-package images.exception;
+package utils.exception;
 
 import lang.Text;
 

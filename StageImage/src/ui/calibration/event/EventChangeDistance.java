@@ -1,9 +1,9 @@
-package main.ui.calibration.event;
+package ui.calibration.event;
 
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import main.ui.calibration.CalibrationPanel;
+import ui.calibration.CalibrationPanel;
 import uiElements.Spinner;
 
 public class EventChangeDistance implements ChangeListener{

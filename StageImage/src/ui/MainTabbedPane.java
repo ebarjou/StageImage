@@ -1,9 +1,9 @@
-package main.ui;
+package ui;
 
 import lang.Text;
-import main.ui.calibration.CalibrationPanel;
-import main.ui.result.ResultPanel;
-import main.ui.selectImages.SelectImagesPanel;
+import ui.calibration.CalibrationPanel;
+import ui.result.ResultPanel;
+import ui.selectImages.SelectImagesPanel;
 import uiElements.TabbedPane;
 
 public class MainTabbedPane extends TabbedPane{

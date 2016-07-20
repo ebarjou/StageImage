@@ -7,7 +7,7 @@ import java.util.List;
 
 import javax.swing.JPanel;
 
-import sift.data.Point3D;
+import utils.Point3D;
 
 public class PointCloudFrame extends JPanel{
 	private double angle, angleRad, axeX;

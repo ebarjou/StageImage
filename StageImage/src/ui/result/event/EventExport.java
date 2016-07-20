@@ -1,4 +1,4 @@
-package main.ui.result.event;
+package ui.result.event;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,8 +8,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
-import main.ui.result.ResultPanel;
-import sift.data.Point3D;
+import ui.result.ResultPanel;
+import utils.Point3D;
 
 public class EventExport implements ActionListener{
 	ResultPanel 	resultPanel;

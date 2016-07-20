@@ -11,9 +11,9 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
-import images.exception.ImageException;
-import main.ui.selectImages.SelectImagesPanel;
+import ui.selectImages.SelectImagesPanel;
 import uiElements.exception.UIException;
+import utils.exception.ImageException;
 
 public class CalibrationFrame extends JPanel{
 	private double axeLeft, axeRight;

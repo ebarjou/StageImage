@@ -1,11 +1,12 @@
-package sift.data;
+package utils;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import org.opencv.core.Point;
 import org.opencv.features2d.KeyPoint;
 
-import main.ui.calibration.CalibrationPanel;
+import ui.calibration.CalibrationPanel;
 import uiElements.combinedElement.PointCloudFrame;
 
 /*
@@ -38,6 +39,15 @@ public class MatchList {
 	}
 	public void setAngle2(double angle2) {
 		this.angle2 = angle2;
+	}
+	public int getSize(){
+		return Math.min(img1.size(), img2.size());
+	}
+	public Point getPoint1(int index){
+		return img1.get(index).pt;
+	}
+	public Point getPoint2(int index){
+		return img2.get(index).pt;
 	}
 	public void clear(){
 		img1.clear();

@@ -1,15 +1,15 @@
-package main.ui.selectImages;
+package ui.selectImages;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import lang.Text;
-import main.ui.selectImages.event.EventAddImage;
-import sift.data.ImageAttributes;
+import ui.selectImages.event.EventAddImage;
 import uiElements.Button;
 import uiElements.FileChooser;
 import uiElements.Panel;
 import uiElements.combinedElement.LoadedImageFrame;
+import utils.ImageAttributes;
 /*
  * Panneau pour séléctionner les images à traiter : 
  * Affiche un certain nombre de LoadedImageFrame, un bouton pour ajouter une image et un fileChooser pour choisir l'image

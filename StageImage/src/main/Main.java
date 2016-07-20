@@ -3,10 +3,10 @@ package main;
 import org.opencv.core.Core;
 
 import lang.Text;
-import main.ui.MainTabbedPane;
-import main.ui.calibration.CalibrationPanel;
-import main.ui.result.ResultPanel;
-import main.ui.selectImages.SelectImagesPanel;
+import ui.MainTabbedPane;
+import ui.calibration.CalibrationPanel;
+import ui.result.ResultPanel;
+import ui.selectImages.SelectImagesPanel;
 import uiElements.Window;
 
 public class Main {

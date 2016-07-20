@@ -1,4 +1,4 @@
-package sift;
+package algorithm;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -16,7 +16,7 @@ import org.opencv.features2d.Features2d;
 import org.opencv.features2d.KeyPoint;
 import org.opencv.highgui.Highgui;
 
-import sift.data.MatchList;
+import utils.MatchList;
 
 
 /*

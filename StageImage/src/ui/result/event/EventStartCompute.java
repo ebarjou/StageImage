@@ -1,9 +1,9 @@
-package main.ui.result.event;
+package ui.result.event;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import main.ui.selectImages.SelectImagesPanel;
+import ui.selectImages.SelectImagesPanel;
 
 
 public class EventStartCompute implements ActionListener {

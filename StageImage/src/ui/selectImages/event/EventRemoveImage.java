@@ -1,9 +1,9 @@
-package main.ui.selectImages.event;
+package ui.selectImages.event;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import main.ui.selectImages.SelectImagesPanel;
+import ui.selectImages.SelectImagesPanel;
 import uiElements.combinedElement.LoadedImageFrame;
 
 public class EventRemoveImage implements ActionListener{

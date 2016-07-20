@@ -1,10 +1,10 @@
-package images;
+package utils;
 import java.io.File;
 
 import org.opencv.core.Mat;
 import org.opencv.highgui.Highgui;
 
-import images.exception.ImageException;
+import utils.exception.ImageException;
 
 /*
  * Image stocké sous la frome d'une Matrice Mat de OpenCV

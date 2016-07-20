@@ -1,4 +1,4 @@
-package sift.data;
+package utils;
 
 /*
  * Contient les données nécessaires au SIFT pour un image

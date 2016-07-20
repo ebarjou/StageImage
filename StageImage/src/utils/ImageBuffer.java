@@ -1,4 +1,4 @@
-package images;
+package utils;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import images.exception.ImageException;
+import utils.exception.ImageException;
 
 /*
  * Image stocké sous la frome d'un BufferedImage de Java2D

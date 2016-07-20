@@ -1,9 +1,9 @@
-package main.ui.result.event;
+package ui.result.event;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import main.ui.result.ResultPanel;
+import ui.result.ResultPanel;
 
 
 public class EventChangeView implements ActionListener {

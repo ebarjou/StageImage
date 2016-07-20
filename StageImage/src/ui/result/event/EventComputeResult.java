@@ -1,4 +1,4 @@
-package sift;
+package ui.result.event;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,16 +8,17 @@ import java.util.List;
 import org.opencv.core.Mat;
 import org.opencv.highgui.Highgui;
 
-import main.ui.result.ResultPanel;
-import main.ui.selectImages.SelectImagesPanel;
-import sift.data.ImageAttributes;
-import sift.data.MatchList;
+import algorithm.SIFTDetector;
+import ui.result.ResultPanel;
+import ui.selectImages.SelectImagesPanel;
 import uiElements.exception.UIException;
+import utils.ImageAttributes;
+import utils.MatchList;
 
 /*
  * Action déclenchée pour calculer le SIFT
  */
-public class ActionExecuteSIFT implements ActionListener {
+public class EventComputeResult implements ActionListener {
 	MatchList 				matchList;
 	List<MatchList> 		result;
 	List<ImageAttributes> 	files;
@@ -25,7 +26,7 @@ public class ActionExecuteSIFT implements ActionListener {
 	Mat 					image1, image2;
 	ResultPanel 			resultPanel;
 	
-	public ActionExecuteSIFT(List<MatchList> givenMatchList, ResultPanel resultPanel) {
+	public EventComputeResult(List<MatchList> givenMatchList, ResultPanel resultPanel) {
 		givenMatchList.clear();
 		this.result = givenMatchList;
 		this.resultPanel = resultPanel;

@@ -1,10 +1,10 @@
-package main.ui.calibration;
+package ui.calibration;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 
-import main.ui.calibration.event.EventChangeDistance;
-import main.ui.calibration.event.EventMoveCalLine;
+import ui.calibration.event.EventChangeDistance;
+import ui.calibration.event.EventMoveCalLine;
 import uiElements.Panel;
 import uiElements.Slider;
 import uiElements.Spinner;

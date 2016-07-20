@@ -1,4 +1,4 @@
-package main.ui.result;
+package ui.result;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -6,19 +6,20 @@ import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.List;
 
+import algorithm.MatchlistToPoint3D;
 import lang.Text;
-import main.ui.calibration.CalibrationPanel;
-import main.ui.result.event.EventChangeSpin;
-import main.ui.result.event.EventChangeView;
-import main.ui.result.event.EventExport;
-import sift.ActionExecuteSIFT;
-import sift.data.MatchList;
-import sift.data.Point3D;
+import ui.calibration.CalibrationPanel;
+import ui.result.event.EventChangeSpin;
+import ui.result.event.EventChangeView;
+import ui.result.event.EventComputeResult;
+import ui.result.event.EventExport;
 import uiElements.Button;
 import uiElements.Panel;
 import uiElements.Slider;
 import uiElements.TextLine;
 import uiElements.combinedElement.PointCloudFrame;
+import utils.MatchList;
+import utils.Point3D;
 /*
  * Panneau pour afficher le résultat, comprend une barre de controle et un pointCloudFrame qui affiche un nuage de point
  */
@@ -52,9 +53,9 @@ public class ResultPanel extends Panel{
 	 * Appelée après le SIFT, cette méthode convertie la liste de MatchList en liste de Point3D et les envoie au pointCloudFrame pour qu'il les affiches
 	 */
 	public void ComputePoints(){
-		points = matchLists.get(0).to3DPoints(this.getWidth()/2, calibrationPanel); /*TODO Verifier qu'il existe ? */
-		for (int i = 1; i < matchLists.size(); ++i) points.addAll(matchLists.get(i).to3DPoints(this.getWidth()/2, calibrationPanel));
-		pointCloudFrame.setPoints3D(points);
+		//points = matchLists.get(0).to3DPoints(this.getWidth()/2, calibrationPanel); /*TODO Verifier qu'il existe ? */
+		//for (int i = 1; i < matchLists.size(); ++i) points.addAll(matchLists.get(i).to3DPoints(this.getWidth()/2, calibrationPanel));
+		pointCloudFrame.setPoints3D(MatchlistToPoint3D.convert( matchLists.get(0)));
 	}
 	
 	/*
@@ -70,7 +71,7 @@ public class ResultPanel extends Panel{
 		public ControlFrame(){
 			super(new FlowLayout(FlowLayout.LEFT));
 			
-			startComputingButton = new Button(""+Text.BT_COMPUTE, new ActionExecuteSIFT(matchLists, ResultPanel.this));
+			startComputingButton = new Button(""+Text.BT_COMPUTE, new EventComputeResult(matchLists, ResultPanel.this));
 			saveResult = new Button("Export", new EventExport(ResultPanel.this));
 			scaleControlFrame = new ScaleControlFrame();
 			spinControlFrame = new SpinControlFrame();
