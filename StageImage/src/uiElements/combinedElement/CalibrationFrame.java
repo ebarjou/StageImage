@@ -16,11 +16,11 @@ import uiElements.exception.UIException;
 import utils.exception.ImageException;
 
 public class CalibrationFrame extends JPanel{
-	private double axeLeft, axeRight;
-	private Image image;
-	private int fileNum;
-	private int h, w;
-	private double xL, xR;
+	private double	axeLeft, axeRight;
+	private Image	image;
+	private int		fileNum;
+	private int		w;
+	private double	xL, xR;
 	
 	public CalibrationFrame(){
 		super();
@@ -40,9 +40,8 @@ public class CalibrationFrame extends JPanel{
 		g.fillRect(0, 0, this.getWidth(), this.getHeight());
 		g.setColor(Color.GREEN);
 		try {
-			if (SelectImagesPanel.getImages() == null || SelectImagesPanel.getImages().size() <= fileNum) throw new UIException(); /*TODO*/
-			image = resize(SelectImagesPanel.getImages().get(0).getPath(), this.getWidth(), this.getHeight());//files.get(0).getPath()
-			h = image.getHeight(null);
+			if (SelectImagesPanel.getImages() == null || SelectImagesPanel.getImages().size() <= fileNum) throw new UIException(); /*TODO popup si pas assez de fichiers ou angles identiques*/
+			image = resize(SelectImagesPanel.getImages().get(0).getPath(), this.getWidth(), this.getHeight());
 			w = image.getWidth(null);
 			g.drawImage(image, 0, 0, null);
 			
@@ -52,8 +51,9 @@ public class CalibrationFrame extends JPanel{
 			g.drawLine((int)xL, 0, (int)xL, this.getHeight());
 			g.drawLine((int)xR, 0, (int)xR, this.getHeight()); 
 		} catch (Exception e) {
-			//System.out.println(e.getMessage());
-			/*No image loaded*/
+			/* 
+			 * TODO excepetion No image loaded
+			 */
 		}
 		
 	}

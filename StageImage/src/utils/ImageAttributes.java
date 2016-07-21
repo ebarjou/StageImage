@@ -24,6 +24,6 @@ public class ImageAttributes {
 		this.angle = angle;
 	};
 	public String toString(){
-		return "["+path+" ; "+angle+"�]";
+		return "["+path+" ; "+angle+"°]";
 	}
 }

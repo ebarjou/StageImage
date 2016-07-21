@@ -6,9 +6,6 @@ import java.util.List;
 import org.opencv.core.Point;
 import org.opencv.features2d.KeyPoint;
 
-import ui.calibration.CalibrationPanel;
-import uiElements.combinedElement.PointCloudFrame;
-
 /*
  * Double liste de KeyPoints qui sera le résultat d'un SIFT, une liste par image, ainsi que les angles de prises
  */
@@ -61,7 +58,9 @@ public class MatchList {
 		output.setAngle2(angle2);
 		return output;
 	}
-	
+	/*
+	 * Méthode de convertions des points 2D en points 3D déplaçé dans la classe MatchList2Point3D
+	 * 
 	public List<Point3D> to3DPoints(int axe, CalibrationPanel calibrationPanel){
 		List<Point3D> output = new ArrayList<Point3D>();
 		System.out.println(calibrationPanel.getSizeInCm()+"cm = "+calibrationPanel.getSizeInPx()+"px" );
@@ -77,4 +76,5 @@ public class MatchList {
 		
 		return output;
 	}
+	*/
 }

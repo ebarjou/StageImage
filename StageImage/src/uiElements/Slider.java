@@ -2,6 +2,9 @@ package uiElements;
 
 import javax.swing.JSlider;
 
+/* 
+ * TODO à implémenter correctement !
+ */
 public class Slider extends JSlider{
 	public Slider(){
 		super();

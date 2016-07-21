@@ -19,7 +19,6 @@ import uiElements.Slider;
 import uiElements.TextLine;
 import uiElements.combinedElement.PointCloudFrame;
 import utils.MatchList;
-import utils.Point3D;
 /*
  * Panneau pour afficher le résultat, comprend une barre de controle et un pointCloudFrame qui affiche un nuage de point
  */
@@ -27,12 +26,9 @@ public class ResultPanel extends Panel{
 	private PointCloudFrame		pointCloudFrame;
 	private ControlFrame		controlFrame;
 	private List<MatchList>		matchLists;
-	private List<Point3D>		points;
-	private CalibrationPanel	calibrationPanel;
 	
 	public ResultPanel(CalibrationPanel	calibrationPanel){
 		super(new BorderLayout());
-		this.calibrationPanel = calibrationPanel;
 		
 		matchLists = new ArrayList<MatchList>();
 		
