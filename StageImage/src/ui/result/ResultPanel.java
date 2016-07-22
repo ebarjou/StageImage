@@ -14,6 +14,7 @@ import ui.result.event.EventChangeView;
 import ui.result.event.EventComputeResult;
 import ui.result.event.EventExport;
 import uiElements.Button;
+import uiElements.FileChooser;
 import uiElements.Panel;
 import uiElements.Slider;
 import uiElements.TextLine;
@@ -49,9 +50,11 @@ public class ResultPanel extends Panel{
 	 * Appelée après le SIFT, cette méthode convertie la liste de MatchList en liste de Point3D et les envoie au pointCloudFrame pour qu'il les affiches
 	 */
 	public void ComputePoints(){
-		//points = matchLists.get(0).to3DPoints(this.getWidth()/2, calibrationPanel); /*TODO Verifier qu'il existe ? */
-		//for (int i = 1; i < matchLists.size(); ++i) points.addAll(matchLists.get(i).to3DPoints(this.getWidth()/2, calibrationPanel));
-		pointCloudFrame.setPoints3D(MatchlistToPoint3D.convert( matchLists.get(0)));
+		if (matchLists.size() > 0) {
+			MatchList[] array = new MatchList[matchLists.size()];
+			for (int i = 0; i < matchLists.size(); ++i) array[i] = matchLists.get(i);
+			pointCloudFrame.setPoints3D(MatchlistToPoint3D.convert(array));
+		}
 	}
 	
 	/*
@@ -60,6 +63,7 @@ public class ResultPanel extends Panel{
 	private class ControlFrame extends Panel{
 		private Button				startComputingButton;
 		private Button				saveResult;
+		private FileChooser			fileChooser;
 		private ScaleControlFrame	scaleControlFrame;
 		private SpinControlFrame	spinControlFrame;
 		private MoveControlFrame	moveControlFrame;
@@ -68,7 +72,8 @@ public class ResultPanel extends Panel{
 			super(new FlowLayout(FlowLayout.LEFT));
 			
 			startComputingButton = new Button(""+Text.BT_COMPUTE, new EventComputeResult(matchLists, ResultPanel.this));
-			saveResult = new Button("Export", new EventExport(ResultPanel.this));
+			fileChooser = new FileChooser(".xyz", "xyz");
+			saveResult = new Button("Export", new EventExport(ResultPanel.this, fileChooser));
 			scaleControlFrame = new ScaleControlFrame();
 			spinControlFrame = new SpinControlFrame();
 			moveControlFrame = new MoveControlFrame();

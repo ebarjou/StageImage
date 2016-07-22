@@ -6,13 +6,14 @@ import java.awt.event.ActionListener;
 import javax.swing.JFileChooser;
 
 import ui.selectImages.SelectImagesPanel;
+import uiElements.FileChooser;
 
 
 public class EventAddImage implements ActionListener {
 	private SelectImagesPanel	selectImagePanel;
 	private JFileChooser		fileChooser;
 	
-	public EventAddImage(SelectImagesPanel selectImagePanel, JFileChooser fileChooser){
+	public EventAddImage(SelectImagesPanel selectImagePanel, FileChooser fileChooser){
 		this.fileChooser = fileChooser;
 		this.selectImagePanel = selectImagePanel;
 	}

@@ -41,7 +41,6 @@ public class MatchlistToPoint3D {
 		y = ( p1.y + p2.y )/2;
 		z = (p1.x - p2.x)*(angle1-angle2); /* TODO à corriger */
 		point3D = new Point3D(x,y,z);
-		//point3D.DeepRotateH(angleRad, axeX);
 		return point3D;
 	}
 }

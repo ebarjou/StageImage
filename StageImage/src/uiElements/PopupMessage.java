@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
  * TODO à implémenter correctement !
  */
 public class PopupMessage {
-	public PopupMessage(){
-		JOptionPane.showMessageDialog(null, "");//e.getMessage()
+	public static void draw(String text){
+		JOptionPane.showMessageDialog(null, text);//e.getMessage()
 	}
 }

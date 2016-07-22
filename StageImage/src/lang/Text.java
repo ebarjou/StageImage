@@ -1,5 +1,7 @@
 package lang;
 
+import java.util.Locale;
+
 /*
  * Contient tout les textes affiché dans l'interface utilisateur
  */
@@ -19,8 +21,10 @@ public enum Text {
 	ERR_TYPE("Types don't correspond ", "Les types ne correspondes pas "),
 	ERR_WRITE("Can't write ", "Impossible d'écrire "),
 	/*UI Errors*/
-	ERR_TABARGUMENT("Wrong number of argument for TabbedPane ", "Nombre d'argument incorrect pour le tabbedPane "),
+	//ERR_TABARGUMENT("Wrong number of argument for TabbedPane ", "Nombre d'argument incorrect pour le tabbedPane "),
 	ERR_NOTENOUGHFILES("Not enough images loaded", "Nombre d'images insuffisant"),
+	ERR_INCORRECTANGLES("Incorrect angles", "Angles incorrects"),
+	ERR_CANNOTWRITE("Can't write at specified path", "Impossible d'écrire au chemin indiqué"),
 	
 	TEST("a", "b");
 
@@ -49,7 +53,7 @@ public enum Text {
 	}
 	
 	public String toString(){
-		if ( lang == 1 ) return this.fr();
+		if ( Locale.getDefault().getDisplayLanguage().toLowerCase().contains("fr") ) return this.fr();
 		return this.en();
 	}
 

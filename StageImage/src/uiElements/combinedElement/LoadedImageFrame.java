@@ -66,7 +66,7 @@ public class LoadedImageFrame extends JPanel{
 			super(new GridLayout(3,1));
 			
 			angleSpinner = new Spinner(0.0, -360.0, 360.0, 0.1);
-			anglePanel = new Panel(new TextLine("Angle � "), angleSpinner);
+			anglePanel = new Panel(new TextLine("Angle ° "), angleSpinner);
 			path = new TextLine(LoadedImageFrame.this.file, true);
 			deleteButton = new Button(""+Text.BT_RMV_IMAGE, new EventRemoveImage(selectImagePanel, LoadedImageFrame.this));
 			

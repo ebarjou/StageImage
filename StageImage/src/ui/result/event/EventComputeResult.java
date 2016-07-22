@@ -11,6 +11,7 @@ import org.opencv.highgui.Highgui;
 import algorithm.SIFTDetector;
 import ui.result.ResultPanel;
 import ui.selectImages.SelectImagesPanel;
+import uiElements.PopupMessage;
 import uiElements.exception.UIException;
 import utils.ImageAttributes;
 import utils.MatchList;
@@ -41,7 +42,10 @@ public class EventComputeResult implements ActionListener {
 		files = SelectImagesPanel.getImages();
 		angles = SelectImagesPanel.getAngles();
 		try {
-			if (files.size() < 2) throw new UIException(UIException.NOTENOUGHFILES, null);
+			if (files.size() < 2) throw new UIException(UIException.NOTENOUGHFILES);
+			for(int i = 0; i < files.size(); ++i)
+				for(int j = 0; j < files.size(); ++j)
+					if (i != j && Math.abs(angles.get(i)-angles.get(j)) < 1 ) throw new UIException(UIException.INCORRECTANGLES);
 			for(int i = 1; i < files.size(); ++i){
 				image1 = Highgui.imread(files.get(i-1).getPath());
 				image2 = Highgui.imread(files.get(i).getPath());
@@ -56,8 +60,8 @@ public class EventComputeResult implements ActionListener {
 				//Ajout des points trouvé dans la liste result
 				result.add(matchList.clone());
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (UIException e) {
+			PopupMessage.draw(e.toString());
 		}
 		//Appel de la méthode de resultPanel pour calculer la position des points dans l'espace
 		resultPanel.ComputePoints();
