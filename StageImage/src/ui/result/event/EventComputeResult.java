@@ -8,7 +8,7 @@ import java.util.List;
 import org.opencv.core.Mat;
 import org.opencv.highgui.Highgui;
 
-import algorithm.SIFTDetector;
+import algorithm.FDetector;
 import ui.result.ResultPanel;
 import ui.selectImages.SelectImagesPanel;
 import uiElements.PopupMessage;
@@ -39,6 +39,7 @@ public class EventComputeResult implements ActionListener {
 	 */
 	public void actionPerformed(ActionEvent event) {
 		files.clear();
+		result.clear();
 		files = SelectImagesPanel.getImages();
 		angles = SelectImagesPanel.getAngles();
 		try {
@@ -46,6 +47,7 @@ public class EventComputeResult implements ActionListener {
 			for(int i = 0; i < files.size(); ++i)
 				for(int j = 0; j < files.size(); ++j)
 					if (i != j && Math.abs(angles.get(i)-angles.get(j)) < 1 ) throw new UIException(UIException.INCORRECTANGLES);
+			/* TODO : trier les point par angle croissant*/
 			for(int i = 1; i < files.size(); ++i){
 				image1 = Highgui.imread(files.get(i-1).getPath());
 				image2 = Highgui.imread(files.get(i).getPath());
@@ -53,9 +55,12 @@ public class EventComputeResult implements ActionListener {
 				resultPanel.getPointCloudFrame().addX((resultPanel.getPointCloudFrame().getWidth()/2)-(image1.cols()/2));
 				//Execution du sift pour image1 et image2 dont le résultat sera stocké dans matchList
 				matchList.clear();
-				SIFTDetector.sift(image1, image2, matchList);
+				FDetector.sift(image1, image2, matchList);
 				matchList.setAngle1(angles.get(i-1));
 				matchList.setAngle2(angles.get(i));
+				/*
+				 * TODO : trouver précisément l'axe de rotation
+				 */
 				matchList.axe = image1.cols()/2;
 				//Ajout des points trouvé dans la liste result
 				result.add(matchList.clone());

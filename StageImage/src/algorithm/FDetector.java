@@ -19,7 +19,7 @@ import utils.MatchList;
  * Calcul la MatchList des images im1 et im2 en Mat par l'algorithme SIFT
  * Modifié à partir de : http://dummyscodes.blogspot.fr/2015/12/using-siftsurf-for-object-recognition.html
  */
-public class SIFTDetector {
+public class FDetector {
 	public static void sift(Mat im1, Mat im2, MatchList output) {
 		FeatureDetector 	featureDetector;
 		DescriptorMatcher 	descriptorMatcher;

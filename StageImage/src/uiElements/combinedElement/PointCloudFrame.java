@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import utils.Point3D;
 
 public class PointCloudFrame extends JPanel{
-	private double angle, angleRad, axeX;
+	private double angle, angleRad;
 	private double factor;
 	private int xShift, yShift;
 	private static int scaleShift = 20;
@@ -23,7 +23,6 @@ public class PointCloudFrame extends JPanel{
 		factor = 1;
 		xShift = 0;
 		yShift = 0;
-		axeX = this.getWidth()/2;
 		this.setMinimumSize(new Dimension(640,480));
 	}
 	
@@ -47,13 +46,9 @@ public class PointCloudFrame extends JPanel{
 		yShift += y;
 		this.repaint();
 	}
-	
-	public void setAxeX(double axe){
-		this.axeX = axe;
-	}
 
 	public void setPoints3D(List<Point3D> points){
-		if (this.points != null) this.points.clear();
+		//if (this.points != null) this.points.clear();
 		this.points = points;
 		repaint();
 	}
@@ -66,19 +61,16 @@ public class PointCloudFrame extends JPanel{
 		//double x, dist;
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, this.getWidth(), this.getHeight());
+		//Affichage de la grille
 		g.setColor(Color.DARK_GRAY);
 		for (int i = (int)(xShift%(scaleShift*factor)); i < this.getWidth(); i+=scaleShift*factor) g.drawLine(i, 0, i, this.getHeight());
 		for (int i = (int)(yShift%(scaleShift*factor)); i < this.getHeight(); i+=scaleShift*factor) g.drawLine(0, i, this.getWidth(), i);
 		g.setColor(Color.GREEN);
+		//affichage de chaque points
 		if (points != null && points.size() > 0) 
 			for (int i = 0; i < points.size(); ++i){
-				
-				//dist = Math.abs((this.getWidth()/2)-(int)points.get(i).x);
-				//x = (this.getWidth()/2 - dist*(Math.cos(angleRad*2)+1)/2);// + ((int)points.get(i).z*(Math.cos(angleRad+Math.PI/2)));
-				//x = this.getWidth()/2 - dist*(Math.cos(angleRad)) + points.get(i).z*Math.sin(angleRad);
 				points.get(i).RotateH(angleRad, (int)(this.getWidth()/4)); /*TODO min et max de point pour tourner autour de son centre*/ 
-				//System.out.println((points.get(i).z*Math.sin(angleRad)));
-				drawCross(g,xShift+(int)points.get(i).x ,yShift+(int)points.get(i).y );
+				drawCross(g,(int)((xShift+(int)points.get(i).x)*factor) ,(int)((yShift+(int)points.get(i).y)*factor) );
 			}
 	}
 	
